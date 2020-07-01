@@ -16,6 +16,7 @@ const cropScreenshot = ({ image, cropConfig }) => {
 };
 
 const compareScreenshots = ({ image1, image2, threshold = 0.1, platform }) => {
+  console.log(platform);
   if(typeof image1 !== "string" || typeof image2 !== "string") {
     throw new Error("Should have passed paths to both images");
   }
@@ -65,7 +66,7 @@ compareScreenshots({
 })
 .then(
   (data) => {
-    console.log(data);
+    console.log(data.resultImage.write('result.jpg'));
   }
   )
   .catch(
